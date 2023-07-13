@@ -26,21 +26,34 @@ La structure du projet est la suivante:
 - server:
 
    Config : La configuration de Spring .
+  
 Controller : Un contrôleur est une classe Java portant l'annotation @Controller. L'objectif d'un contrôleur est de réagir à une interaction avec l'utilisateur, cela signifie que l'utilisateur envoie des requêtes HTTP au serveur. Elles sont traitées par les services, qui retournent les résultats sous forme de DTO.
+
 DTO :  (Data Transfer Object, en anglais) est un patron de conception utilisé dans les architectures logicielles objets. Son but est de simplifier les transferts de données entre les sous-systèmes d'une application logicielle.
 Entités ou Model : Une entité est une instance d'une classe qui sera persistante (que l'on pourra sauvegarder dans / charger depuis une base de données relationnelle). Une entité est signalée par l'annotation @Entity dans la classe. Elle appartient en général à un repository (une table de base de données). 
+
 Enums : Ce sont les énumérations métier.
+
 Repositories :  @Repository est une annotation Spring pour indiquer que l’interface a pour rôle de communiquer avec les tables de base de données, via JPA, donc ça contient optionnellement des méthodes de requête.
+
 Services : Traite les requêtes venant du contrôleur, en s'aidant des repositories. C'est là que repose le cœur du métier. 
+
 Security : Implémentation de l'authentification Spring via un Salarie. 
+
 Helpers : Les helpers sont des classes outils qui contiennent du code susceptible d'être utilisable partout dans une application.
 
+
+CLIENT : 
+ANGULAR, HTML, CSS, JS  ( A REVOIR )
 Guards : Gère qui peut accéder à certains chemins de l'application (si l'utilisateur est connecté ou a les droits pour) 
 Localisation : Traduction du texte de l'application.
 Model : Equivalent aux entités du côté serveur, c'est les objets métier.
 Services : Gère la communication avec le serveur, effectue les requêtes pour obtenir et transmettre les informations (ça touche aux contrôleurs du serveur).
 Site : Les pages et composants du site, en général ça injecte des services pour communiquer avec le serveur. Ces pages contiennent un module qui spécifie la route vers celle-ci, et un composant qui définit la logique (.TS) et le contenu de la page (.HTML/.CSS).
 Shared : Les composants partagés entre les pages, y compris la barre de navigation et les validateurs de formulaire.
+
+
+
 
 LES DIFFERENTES ANNOTATIONS :
 
