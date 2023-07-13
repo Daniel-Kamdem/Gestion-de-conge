@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark p-2">
+  <a class="navbar-brand" routerLink="">{{title}}</a>
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" *ngFor="let route of routesForUser">
+        <a class="nav-link" [routerLink]="route.path" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{route.name}}</a>
+      </li>
+    </ul>
+    <app-nav-menu-user class="text-white"></app-nav-menu-user>
+  </div>
+</nav>

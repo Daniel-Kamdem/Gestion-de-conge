@@ -1,0 +1,34 @@
+<h1 class="mb-5">Gestion des absences</h1>
+<table class="table table-dark table-striped table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Date de début</th>
+      <th>Date de fin</th>
+      <th>Type</th>
+      <th>Statut</th>
+      <th class="col-1">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let absence of absences">
+      <td>{{absence.dateDebut.toLocaleDateString()}}</td>
+      <td>{{absence.dateFin.toLocaleDateString()}}</td>
+      <td>{{typeAbsenceLabels.get(absence.type)}}</td>
+      <td>{{statutAbsenceLabels.get(absence.statut)}}</td>
+      <td class="d-grid d-flex gap-2 justify-content-end">
+        <button *ngIf="isEditable(absence)" class="btn btn-warning" (click)="edit(absence)">✏️</button>
+        <button class="btn btn-danger" (click)="delete(absence)">🗑️</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div class="d-flex justify-content-end">
+  <button class="btn btn-primary" routerLink="demande">Demander une absence</button>
+</div>
+<div class="mt-2" *ngIf="compteur">
+  <p>Solde des compteurs</p>
+  <ul>
+    <li>Congés payés : {{compteur.nombreCongesPayes}}</li>
+    <li>RTT : {{compteur.nombreRTT}}</li>
+  </ul>
+</div>
